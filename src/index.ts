@@ -13,14 +13,14 @@ render(React.createElement(App));
 
 
 
-// const agent = new Agent();
-// const userInput = process.argv.slice(2).join(" ") || "Say hello and tell me what tools you have.";
+const agent = new Agent();
+const userInput = process.argv.slice(2).join(" ") || "Say hello and tell me what tools you have.";
 
-// await agent.run(userInput, {
-//     onText: (chunk) => process.stdout.write(chunk),
-//     onToolStart: (name, input) => console.log(`\n[tool] ${name}`, input),
-//     onToolEnd: (name, result) =>
-//         console.log(`[tool done] ${name}: ${result.isError ? "ERROR - " + result.content : "ok"}`),
-//     onDone: () => console.log("\n"),
-// });
+await agent.run(userInput, {
+    onText: (chunk) => process.stdout.write(chunk),
+    onToolStart: (name, input) => console.log(`\n[tool] ${name}`, input),
+    onToolEnd: (name, result) =>
+        console.log(`[tool done] ${name}: ${result.isError ? "ERROR - " + result.content : "ok"}`),
+    onDone: () => console.log("\n"),
+});
 
